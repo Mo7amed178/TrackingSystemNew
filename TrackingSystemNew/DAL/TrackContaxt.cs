@@ -13,5 +13,8 @@ namespace TrackingSystemNew.DAL
 
             Database.SetInitializer<TrackContaxt>(new DropCreateDatabaseIfModelChanges<TrackContaxt>());
         }
+        public System.Data.Entity.DbSet<TrackingSystemNew.Models.Track> Tracks { get; set; }
+        public System.Data.Entity.DbSet<TrackingSystemNew.Models.Customer> Customers { get; set; }
+        public System.Data.Entity.DbSet<TrackingSystemNew.Models.Shipment> Shipments { get; set; }
     }
 }
