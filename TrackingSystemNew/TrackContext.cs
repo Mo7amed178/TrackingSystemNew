@@ -12,5 +12,7 @@ namespace TrackingSystemNew
 {
             Database.SetInitializer<TrackContext>(new DropCreateDatabaseAlways<TrackContext>());
         }
+
+        public System.Data.Entity.DbSet<TrackingSystemNew.Models.Shipment> Shipments { get; set; }
     }
 }
