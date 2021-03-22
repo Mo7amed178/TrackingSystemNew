@@ -11,107 +11,107 @@ using TrackingSystemNew.Models;
 
 namespace TrackingSystemNew.Controllers
 {
-    public class TracksController : Controller
+    public class CustomersController : Controller
     {
         private TrackContaxt db = new TrackContaxt();
 
-        // GET: Tracks
+        // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Tracks.ToList());
+            return View(db.Customers.ToList());
         }
 
-        // GET: Tracks/Details/5
+        // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Track track = db.Tracks.Find(id);
-            if (track == null)
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(track);
+            return View(customer);
         }
 
-        // GET: Tracks/Create
+        // GET: Customers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Tracks/Create
+        // POST: Customers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TrackID,TrackStatus,Distnation,Origin")] Track track)
+        public ActionResult Create([Bind(Include = "ID,Name,Address")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                db.Tracks.Add(track);
+                db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(track);
+            return View(customer);
         }
 
-        // GET: Tracks/Edit/5
+        // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Track track = db.Tracks.Find(id);
-            if (track == null)
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(track);
+            return View(customer);
         }
 
-        // POST: Tracks/Edit/5
+        // POST: Customers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TrackID,TrackStatus,Distnation,Origin")] Track track)
+        public ActionResult Edit([Bind(Include = "ID,Name,Address")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(track).State = EntityState.Modified;
+                db.Entry(customer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(track);
+            return View(customer);
         }
 
-        // GET: Tracks/Delete/5
+        // GET: Customers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Track track = db.Tracks.Find(id);
-            if (track == null)
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(track);
+            return View(customer);
         }
 
-        // POST: Tracks/Delete/5
+        // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Track track = db.Tracks.Find(id);
-            db.Tracks.Remove(track);
+            Customer customer = db.Customers.Find(id);
+            db.Customers.Remove(customer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

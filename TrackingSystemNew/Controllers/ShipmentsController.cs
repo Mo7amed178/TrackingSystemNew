@@ -6,14 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TrackingSystemNew;
+using TrackingSystemNew.DAL;
 using TrackingSystemNew.Models;
 
 namespace TrackingSystemNew.Controllers
 {
     public class ShipmentsController : Controller
     {
-        private TrackContext db = new TrackContext();
+        private TrackContaxt db = new TrackContaxt();
 
         // GET: Shipments
         public ActionResult Index()
@@ -43,7 +43,7 @@ namespace TrackingSystemNew.Controllers
         }
 
         // POST: Shipments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -75,7 +75,7 @@ namespace TrackingSystemNew.Controllers
         }
 
         // POST: Shipments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
