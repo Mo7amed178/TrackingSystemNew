@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TrackingSystemNew.Models.Track>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrackStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distnation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Origin)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrackStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Distnation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Origin)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TrackID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TrackID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TrackID })
+        </td>
+    </tr>
+}
+
+</table>
